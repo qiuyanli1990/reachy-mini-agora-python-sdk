@@ -1,0 +1,45 @@
+{
+    "name": "reachy_conversation",
+    "properties": {
+        "channel": "reachy_conversation",
+        "agent_rtc_uid": "1000",
+        "remote_rtc_uids": [
+            "12345"
+        ],
+        "enable_string_uid": false,
+        "idle_timeout": 120,
+        "asr": {
+            "language": "en-US"
+        },
+        "llm": {
+            "url": "https://api.openai.com/v1/chat/completions",
+            "api_key": "YOUR_LLM_API_KEY",
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "predefined_tools": [
+                "_publish_message"
+            ],
+            "system_messages": [
+                {
+                    "role": "system",
+                    "content": "{{prompt.txt}}"
+                }
+            ],
+            "greeting_message": "Hello, how can I assist you today?",
+            "failure_message": "Please hold on a second.",
+            "params": {
+                "model": "gpt-4o"
+            }
+        },
+        "tts": {
+            "vendor": "microsoft",
+            "params": {
+                "key": "YOUR_TTS_KEY",
+                "region": "japanwest",
+                "voice_name": "en-US-AndrewMultilingualNeural"
+            }
+        }
+    }
+}
